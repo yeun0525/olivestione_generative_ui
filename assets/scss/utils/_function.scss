@@ -1,0 +1,183 @@
+@use 'vars' as *;
+@use 'sass:math';
+
+// REM 치환
+@function rem($px) {
+	$round: round(
+		$number: $px * 0.7,
+	);
+	$num: str-replace(#{$round * 0.1}, 'px');
+	@return #{$num}rem;
+}
+
+// REM 치환
+@function tab($px) {
+	$round: round(
+		$number: $px * 0.55,
+	);
+	$num: str-replace(#{$round * 0.1}, 'px');
+	@return #{$num}rem;
+}
+
+// VW 치환
+@function vw($px) {
+	$round: round(
+		$number: math.div($px, 720) * 1000,
+	);
+	$num: str-replace(#{$round * 0.1}, 'px');
+	@return #{$num}vw;
+}
+
+// PC VW 치환
+@function pc-vw($px, $space: null) {
+	@if $space {
+		$round: round(
+			$number: math.div($px, (1920 + $space)) * 1000,
+		);
+		$num: str-replace(#{$round * 0.1}, 'px');
+		@return #{$num}vw;
+	} @else {
+		$round: round(
+			$number: math.div($px, 1920) * 1000,
+		);
+		$num: str-replace(#{$round * 0.1}, 'px');
+		@return #{$num}vw;
+	}
+}
+
+// 문자 치환
+@function str-replace($string, $search, $replace: '') {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace +
+			str-replace(
+				str-slice($string, $index + str-length($search)),
+				$search,
+				$replace
+			);
+	}
+
+	@return $string;
+}
+
+// 이미지 경로
+@function url-img(
+	$type,
+	$name,
+	$cate: null,
+	$value: svg,
+	$mobile: false,
+	$tablet: false
+) {
+	@if $cate != '' {
+		$filename: $name + '-' + $cate + '.' + $value;
+		@if $mobile {
+			$url: '../image/' + $type + '/mobile/' + $filename;
+			@return $url;
+		} @else if $tablet {
+			$url: '../image/' + $type + '/tablet/' + $filename;
+			@return $url;
+		} @else {
+			$url: '../image/' + $type + '/' + $filename;
+			@return $url;
+		}
+	} @else {
+		$filename: $name + '.' + $value;
+		@if $mobile {
+			$url: '../image/' + $type + '/mobile/' + $filename;
+			@return $url;
+		} @else if $tablet {
+			$url: '../image/' + $type + '/tablet/' + $filename;
+			@return $url;
+		} @else {
+			$url: '../image/' + $type + '/' + $filename;
+			@return $url;
+		}
+	}
+}
+@function url-brand(
+	$kind,
+	$brand,
+	$cate,
+	$name: null,
+	$value: svg,
+	$mobile: false,
+	$tablet: false
+) {
+	$type: $kind + '/' + $brand;
+	@if $name != '' {
+		$filename: $cate + '-' + $name + '.' + $value;
+		@if $mobile {
+			$url: '../image/' + $type + '/mobile/' + $filename;
+			@return $url;
+		} @else if $tablet {
+			$url: '../image/' + $type + '/tablet/' + $filename;
+			@return $url;
+		} @else {
+			$url: '../image/' + $type + '/' + $filename;
+			@return $url;
+		}
+	} @else {
+		$filename: $cate + '.' + $value;
+		@if $mobile {
+			$url: '../image/' + $type + '/mobile/' + $filename;
+			@return $url;
+		} @else if $tablet {
+			$url: '../image/' + $type + '/tablet/' + $filename;
+			@return $url;
+		} @else {
+			$url: '../image/' + $type + '/' + $filename;
+			@return $url;
+		}
+	}
+}
+
+@function set-font($type) {
+	@if $type == ov {
+		@return 'Overused Grotesk';
+	}
+	@if $type == ur {
+		@return 'Urbanist';
+	}
+	@if $type == pr {
+		@return 'pretendard';
+	}
+	@if $type == pp {
+		@return 'PPEditorialNew';
+	}
+	@if $type == ppo {
+		@return 'PPEditorialOld';
+	}
+	@if $type == al {
+		@return 'almaq refined';
+	}
+	@if $type == bi {
+		@return 'bilo';
+	}
+	@if $type == be {
+		@return 'Bebas Neue';
+	}
+	@if $type == no {
+		@return 'Nohemi';
+	}
+	@if $type == ga {
+		@return 'Gastroe';
+	}
+	@if $type == ac {
+		@return 'acumin variable';
+	}
+	@if $type == noto {
+		@return 'Noto Sans KR';
+	}
+	@if $type == an {
+		@return 'Anek Bangla';
+	}
+	@if $type == vo {
+		@return 'Voltaire';
+	}
+	@if $type == co {
+		@return 'CormorantInfant';
+	}
+	@return '';
+}

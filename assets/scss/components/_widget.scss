@@ -1,0 +1,57 @@
+@use '../utils/' as *;
+
+.widget {
+	width: 320px;
+	padding: 20px 18px;
+	border-radius: 26px;
+	background-color: $hexWhite;
+	&--title {
+		margin-bottom: 12px;
+		color: $hexText;
+		font-size: 15px;
+		font-weight: $fwSB;
+	}
+	&--img {
+		width: 100%;
+		height: 160px;
+		border-radius: 16px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		& + .widget--desc {
+			margin-top: 12px;
+		}
+	}
+	&--desc {
+		color: $hexTextDesc;
+		font-size: 14px;
+		font-weight: $fwR;
+		line-height: 21px;
+	}
+	&--list {
+		&__box {
+			padding: 14px 0 15px;
+			border-bottom: 1px solid $hexGray;
+			.title {
+				color: $hexText;
+				font-size: 17.22px;
+				font-weight: $fwR;
+				line-height: 22px;
+			}
+			.text {
+				color: $hexListText;
+				font-size: 13px;
+				font-weight: $fwR;
+				line-height: 17px;
+			}
+			.number {
+			}
+			&.is {
+				&--number {
+				}
+			}
+		}
+	}
+}

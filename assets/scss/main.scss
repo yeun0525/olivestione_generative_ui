@@ -1,0 +1,8 @@
+@charset 'UTF-8';
+// Project Name		: PROJECT NAME
+// Written date		: 2024-00-00 ~
+// Browser			: CHROME, EDGE, ANDROID, iPHONE
+
+@use 'config/' as *; // 기본 스타일 정의
+@use 'components/' as *; // 위젯 스타일
+@use 'utils/' as *; // 기본 변수, 테마, mixin, function 정의

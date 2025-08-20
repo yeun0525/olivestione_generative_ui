@@ -1,0 +1,9 @@
+# 퍼블리싱 진행 중일 경우만 css, css.map ignore 처리
+*/*.css
+*/*.css.map
+*.css
+*.css.map
+web.config
+.DS_Store
+
+ignore*.*
