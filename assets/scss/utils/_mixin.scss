@@ -1,0 +1,43 @@
+@use 'vars' as *;
+@use 'sass:math';
+
+// flex
+@mixin set-flex($fixed: null, $dir: row, $j: null, $a: null) {
+	@if $fixed != null {
+		@if $fixed {
+			flex-shrink: 0;
+			flex-grow: 0;
+		} @else {
+			flex-shrink: 1;
+			flex-grow: 1;
+		}
+	} @else {
+		display: flex;
+		@if $dir {
+			flex-direction: $dir;
+		}
+		@if $j {
+			justify-content: $j;
+		}
+		@if $a {
+			align-items: $a;
+		}
+	}
+}
+
+// Ellipsis
+@mixin ellipsis($l: 1, $lh: null, $p: 0) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	@if $l == 1 {
+		white-space: nowrap;
+	}
+	@if $l > 1 {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: $l;
+		@if $lh != null {
+			max-height: #{$lh * $l + ($p * 2)}px;
+		}
+	}
+}

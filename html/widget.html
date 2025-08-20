@@ -6,20 +6,32 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 	<title>widget</title>
 	<link rel="stylesheet" type="text/css" href="../assets/css/main.css" />
-	<script src="../assets/js/jquery-3.6.4.min.js"></script>
+	<script src="../assets/js/jquery-3.7.1.min.js"></script>
 	<script src="../assets/js/design.js"></script>
 </head>
 
 <body>
 	<div class="wrap">
 		<div class="container">
-			<div class="contents--area">
+			<div class="contents--area" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
 				<div class="widget">
                     <p class="widget--title">Title</p>
                     <div class="widget--img">
-                        <img src="../assets/image/img-box.jpg" alt="" class="widget--img">
+                        <img src="../assets/image/img-box.jpg" alt="img" class="widget--img">
                     </div>
-                    <p class="widget--desc">Lorem ipsum dolor sit amet consectetur. Eget pellentesque nec consectetur tempus turpis ultrices.</p>
+                    <p class="widget--desc">Lorem ipsum dolor sit amet consectetur.<br>Eget pellentesque nec consectetur tempus turpis ultrices.</p>
+                </div>
+                <div class="widget">
+                    <p class="widget--title">Title</p>
+                    <div class="widget--img">
+                        <img src="../assets/image/img-box.jpg" alt="img" class="widget--img">
+                    </div>
+                    <p class="widget--subtitle">Sub Title</p>
+                    <p class="widget--desc">Lorem ipsum dolor sit amet consectetur.<br>Eget pellentesque nec consectetur tempus turpis ultrices.</p>
+                </div>
+                <div class="widget">
+                    <p class="widget--title">Title</p>
+                    <p class="widget--desc">Lorem ipsum dolor sit amet consectetur.<br>Eget pellentesque nec consectetur tempus turpis ultrices.</p>
                     <div class="widget--list">
                         <div class="widget--list__box">
                             <div class="widget--list__text">
@@ -27,6 +39,54 @@
                                 <p class="text">content</p>
                             </div>
                         </div>
+                        <div class="widget--list__box">
+                            <div class="widget--list__text">
+                                <p class="title">subject</p>
+                                <p class="text">content</p>
+                            </div>
+                        </div>
+                        <div class="widget--list__box">
+                            <div class="widget--list__text">
+                                <p class="title">subject</p>
+                                <p class="text">content</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget">
+                    <p class="widget--title">Title</p>
+                    <p class="widget--desc">Lorem ipsum dolor sit amet consectetur.<br>Eget pellentesque nec consectetur tempus turpis ultrices.</p>
+                    <div class="widget--list">
+                        <div class="widget--list__box is--number">
+                            <p class="number">1</p>
+
+                            <div class="widget--list__text">
+                                <p class="title">subject</p>
+                                <p class="text">content</p>
+                            </div>
+                        </div>
+                        <div class="widget--list__box is--number">
+                            <p class="number">2</p>
+
+                            <div class="widget--list__text">
+                                <p class="title">subject</p>
+                                <p class="text">content</p>
+                            </div>
+                        </div>
+                        <div class="widget--list__box is--number">
+                            <p class="number">3</p>
+
+                            <div class="widget--list__text">
+                                <p class="title">subject</p>
+                                <p class="text">content</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget">
+                    <p class="widget--title">Title</p>
+                    <div class="widget--img">
+                        <img src="../assets/image/img-box.jpg" alt="img" class="widget--img">
                     </div>
                     <div class="widget--list">
                         <div class="widget--list__box is--number">
@@ -37,10 +97,8 @@
                                 <p class="text">content</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="widget--list">
-                        <div class="widget--list__box is--icon">
-                            <p class="icon"></p>
+                        <div class="widget--list__box is--number">
+                            <p class="number">2</p>
 
                             <div class="widget--list__text">
                                 <p class="title">subject</p>
@@ -49,8 +107,104 @@
                         </div>
                     </div>
                 </div>
+                <div class="widget">
+                    <p class="widget--title">Title</p>
+                    <p class="widget--desc">Lorem ipsum dolor sit amet consectetur.<br>Eget pellentesque nec consectetur tempus turpis ultrices.</p>
+                    <div class="widget--list">
+                        <div class="widget--list__box is--icon">
+                            <div class="icon">
+                                <img src="../assets/image/icon.png" alt="IC icon">
+                            </div>
+
+                            <div class="widget--list__text">
+                                <p class="title">List item</p>
+                                <p class="text text--blue">sub item 1</p>
+                            </div>
+                        </div>
+                        <div class="widget--list__box is--icon">
+                            <div class="icon">
+                                <img src="../assets/image/icon.png" alt="IC icon">
+                            </div>
+
+                            <div class="widget--list__text">
+                                <p class="title">List item</p>
+                                <p class="text text--blue">sub item 1</p>
+                            </div>
+                        </div>
+                        <div class="widget--list__box is--icon">
+                            <div class="icon">
+                                <img src="../assets/image/icon.png" alt="IC icon">
+                            </div>
+
+                            <div class="widget--list__text">
+                                <p class="title">List item</p>
+                                <p class="text text--blue">sub item 1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget">
+                    <p class="widget--title">Title</p>
+                    <div class="widget--list">
+                        <div class="widget--list__box is--message">
+                            <div class="icon message">
+                                <img src="../assets/image/icon-message.png" alt="IC icon">
+                            </div>
+                            <div class="widget--list__text">
+                                <div class="widget--list__top">
+                                    <p class="title">List item</p>
+                                    <p class="time">12:40</p>
+                                </div>
+                                <div class="widget--list__bottom">
+                                    <p class="text text--blue">sub item 1</p>
+                                    <p class="alarm">1</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget--list__box is--message">
+                            <div class="icon message">
+                                <img src="../assets/image/icon-message.png" alt="IC icon">
+                            </div>
+                            <div class="widget--list__text">
+                                <div class="widget--list__top">
+                                    <p class="title">List item</p>
+                                    <p class="time">12:40</p>
+                                </div>
+                                <div class="widget--list__bottom">
+                                    <p class="text text--blue">sub item 1</p>
+                                    <p class="alarm">1</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget--img">
+                        <img src="../assets/image/img-box.jpg" alt="img" class="widget--img">
+                    </div>
+                </div>
+                <div class="widget">
+                    <p class="widget--title">Title</p>
+                    <p class="widget--desc">Lorem ipsum dolor sit amet consectetur.<br>Eget pellentesque nec consectetur tempus turpis ultrices.</p>
+                    <div class="widget--list">
+                        <div class="widget--list__box is--icon">
+                            <div class="icon">
+                                <img src="../assets/image/icon.png" alt="IC icon">
+                            </div>
+
+                            <div class="widget--list__text">
+                                <p class="title">List item</p>
+                                <p class="text text--blue">sub item 1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>
 </body>
+
+<style>
+    .widget{
+        height: fit-content;
+    }
+</style>
 </html>
