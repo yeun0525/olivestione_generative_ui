@@ -1,0 +1,97 @@
+@use '../utils/' as *;
+
+@mixin set-input() {
+	@include set-flex($a: center);
+	position: relative;
+	input {
+		&[type='checkbox'] {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			z-index: 10;
+		}
+	}
+	span {
+		position: relative;
+		z-index: 5;
+	}
+	&__icon {
+		@include set-flex($a: center, $j: center);
+		@include set-flex($f: true);
+		background-color: $hexWhite;
+		&::before {
+			@include reset(pseudo);
+		}
+	}
+}
+
+.forms {
+	&--toggle {
+		$s: 18px;
+		$el: '.forms--toggle';
+		@include set-input;
+		input {
+			&:checked {
+				& ~ #{$el}__icon {
+					justify-content: flex-end;
+					border-color: #387aff;
+					background-color: #387aff;
+				}
+			}
+		}
+		&__icon {
+			justify-content: flex-start;
+			width: $s * 2;
+			height: $s + 2;
+			background-color: #a3a3a7;
+			border: 2px solid #a3a3a7;
+			border-radius: $s;
+			&::before {
+				width: $s - 2;
+				height: $s - 2;
+				background-color: $hexWhite;
+				border-radius: $s - 2px;
+			}
+		}
+	}
+	&--check {
+		$el: '.forms--check';
+		$s: 20px;
+		gap: 20px;
+		@include set-input;
+		input {
+			&:checked {
+				& ~ #{$el}__icon {
+					background: {
+						image: url(url-img(icon, forms, check));
+						size: $s;
+					}
+					border: none;
+				}
+			}
+			&:disabled {
+				& ~ #{$el}__icon {
+					background-color: #888;
+					border-color: #888;
+				}
+			}
+		}
+		&__icon {
+			@include set-flex($f: true);
+			width: $s;
+			height: $s;
+			border: 1px solid #a3a3a7;
+			border-radius: $s;
+		}
+		&__text {
+			color: $hexText;
+			font-size: 17px;
+			font-weight: $fwR;
+			line-height: 23px;
+			@include ellipsis();
+		}
+	}
+}

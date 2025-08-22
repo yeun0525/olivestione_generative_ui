@@ -2,6 +2,7 @@
 
 .widget {
 	width: 320px;
+	height: fit-content;
 	padding: 20px 18px;
 	border-radius: 26px;
 	background-color: $hexWhite;
@@ -26,6 +27,9 @@
 		& + .widget--desc {
 			margin-top: 12px;
 		}
+		& + .widget--list {
+			margin-top: 12px;
+		}
 	}
 	&--subtitle {
 		margin-bottom: 4px;
@@ -35,10 +39,15 @@
 		line-height: 19px;
 	}
 	&--desc {
+		max-height: 63px;
 		color: $hexTextDesc;
 		font-size: 14px;
 		font-weight: $fwR;
 		line-height: 21px;
+		@include ellipsis($l: 3, $lh: 21);
+		& + .widget--list {
+			margin-top: 12px;
+		}
 	}
 	&--list {
 		&__box {
@@ -52,12 +61,16 @@
 				font-size: 17.22px;
 				font-weight: $fwR;
 				line-height: 22px;
+				@include ellipsis();
 			}
+			// **영은: 이거 잠시 보류 / 이거 해결할 때 카톡 알림 100자 말줄임표도 같이 봐야함
 			.text {
 				color: $hexListText;
 				font-size: 13px;
 				font-weight: $fwR;
 				line-height: 17px;
+				@include ellipsis($l: 5, $lh: 17);
+				max-height: 85px;
 				&--blue {
 					color: $hexBlue;
 				}
@@ -85,6 +98,19 @@
 					width: $s;
 					height: $s;
 				}
+				&.thumb {
+					$s: 86px;
+					width: $s;
+					height: $s;
+					border: 0.3px solid #e9e9ec;
+					border-radius: 8px;
+					overflow: hidden;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
 			}
 			.time {
 				color: $hexListText;
@@ -94,9 +120,9 @@
 			}
 			.alarm {
 				$s: 17px;
+				flex: 0 0 auto;
 				width: $s;
 				height: $s;
-				// padding-right: 1px;
 				border-radius: $s;
 				background-color: $hexRed;
 				color: $hexWhite;
@@ -105,7 +131,11 @@
 				line-height: 15px;
 				@include set-flex($j: center, $a: center);
 			}
+			& + .widget--list__box {
+				margin-top: 12px;
+			}
 			&.is {
+				$el: '.widget--list';
 				&--number {
 					@include set-flex();
 				}
@@ -114,7 +144,6 @@
 					@include set-flex($a: center);
 				}
 				&--message {
-					$el: '.widget--list';
 					gap: 16px;
 					padding: 14px 0;
 					border-bottom: none;
@@ -124,20 +153,247 @@
 							@include set-flex($j: space-between, $a: center);
 						}
 						&__bottom {
-							@include set-flex($j: space-between, $a: center);
+							@include set-flex(
+								$j: space-between,
+								$a: flex-start
+							);
+						}
+						&__text {
+							.title {
+								font-weight: $fwSB;
+							}
+							.text {
+								color: #a3a3a7;
+								@include ellipsis($l: 2, $lh: 17);
+							}
 						}
 					}
 					& + .is--message {
 						margin-top: 12px;
 					}
 				}
+				&--thumb {
+					gap: 21px;
+					padding: 0;
+					border-bottom: none;
+					@include set-flex($a: center);
+					& + .is--thumb {
+						margin-top: 12px;
+						#{$el} {
+							&__text {
+								position: relative;
+								&::before {
+									position: absolute;
+									width: 100%;
+									height: 1px;
+									top: -12px;
+									background-color: $hexGray;
+									@include reset(pseudo);
+								}
+							}
+						}
+					}
+					#{$el} {
+						&__text {
+							height: 126px;
+							@include set-flex($dir: column, $j: center);
+						}
+					}
+					&-toggle {
+						gap: 16px;
+						padding: 10px 0;
+						border-bottom: none;
+						@include set-flex($a: center);
+						.thumb {
+							$s: 68px;
+							width: $s;
+							height: $s;
+						}
+						.forms--toggle {
+							&::before {
+								display: none;
+							}
+						}
+						#{$el} {
+							&__textbox {
+								flex-direction: row;
+								width: 100%;
+								height: auto;
+								@include set-flex($j: space-between);
+							}
+						}
+					}
+				}
+				&--toggle {
+					@include set-flex($j: space-between);
+					.forms--toggle {
+						position: relative;
+						&::before {
+							position: absolute;
+							width: 1px;
+							height: 22px;
+							top: 50%;
+							left: -12px;
+							background-color: #ccccce;
+							transform: translateY(-50%);
+							@include reset(pseudo);
+						}
+					}
+				}
+				&--check {
+					border-bottom: 0;
+				}
 			}
 		}
 		&__text {
 			width: 100%;
 		}
+		&__tag {
+			gap: 6px;
+			margin-bottom: 4px;
+			@include set-flex($a: center);
+			.tag {
+				max-width: 85px;
+				padding: 0 10px;
+				border-radius: 12px;
+				background-color: #387aff;
+				color: $hexWhite;
+				font-size: 11px;
+				font-weight: $fwSB;
+				line-height: 20px;
+				@include ellipsis();
+				&.lightblue {
+					background-color: #d6e3ff;
+					color: #2e65d4;
+				}
+			}
+		}
 		& + .widget--img {
 			margin-top: 12px;
+		}
+	}
+	&--button {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		height: 36px;
+		margin-top: 16px;
+		button {
+			position: relative;
+			color: $hexText;
+			font-size: 18px;
+			font-weight: $fwSB;
+			line-height: 24px;
+			&::before {
+				position: absolute;
+				width: 1px;
+				height: 16px;
+				top: 50%;
+				background-color: $hexListText;
+				opacity: 0.23;
+				transform: translateY(-50%);
+				@include reset(pseudo);
+			}
+			&:first-child {
+				&::before {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@mixin set-input() {
+	@include set-flex($a: center);
+	position: relative;
+	input {
+		&[type='checkbox'] {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			z-index: 10;
+		}
+	}
+	span {
+		position: relative;
+		z-index: 5;
+	}
+	&__icon {
+		@include set-flex($a: center, $j: center);
+		@include set-flex($f: true);
+		background-color: $hexWhite;
+		&::before {
+			@include reset(pseudo);
+		}
+	}
+}
+
+.forms {
+	&--toggle {
+		$s: 18px;
+		$el: '.forms--toggle';
+		@include set-input;
+		input {
+			&:checked {
+				& ~ #{$el}__icon {
+					justify-content: flex-end;
+					border-color: #387aff;
+					background-color: #387aff;
+				}
+			}
+		}
+		&__icon {
+			justify-content: flex-start;
+			width: $s * 2;
+			height: $s + 2;
+			background-color: #a3a3a7;
+			border: 2px solid #a3a3a7;
+			border-radius: $s;
+			&::before {
+				width: $s - 2;
+				height: $s - 2;
+				background-color: $hexWhite;
+				border-radius: $s - 2px;
+			}
+		}
+	}
+	&--check {
+		$el: '.forms--check';
+		$s: 20px;
+		gap: 20px;
+		@include set-input;
+		input {
+			&:checked {
+				& ~ #{$el}__icon {
+					background: {
+						image: url(url-img(icon, forms, check));
+						size: $s;
+					}
+					border: none;
+				}
+			}
+			&:disabled {
+				& ~ #{$el}__icon {
+					background-color: #888;
+					border-color: #888;
+				}
+			}
+		}
+		&__icon {
+			@include set-flex($f: true);
+			width: $s;
+			height: $s;
+			border: 1px solid #a3a3a7;
+			border-radius: $s;
+		}
+		&__text {
+			color: $hexText;
+			font-size: 17px;
+			font-weight: $fwR;
+			line-height: 23px;
+			@include ellipsis();
 		}
 	}
 }

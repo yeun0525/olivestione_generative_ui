@@ -16,17 +16,29 @@
 	<body>
 		<div class="wrap">
 			<div class="container">
-				<div
-					class="contents--area"
-					style="
-						display: grid;
-						grid-template-columns: repeat(3, 1fr);
-						gap: 20px;
-					"
-				>
-					<!-- 기본 -->
+				<div class="contents--area">
+					<!-- Thumbnail list + Visual -->
 					<div class="widget">
 						<p class="widget--title">Title</p>
+						<div class="widget--list">
+							<div class="widget--list__box is--thumb">
+								<div class="icon thumb">
+									<img
+										src="../assets/image/img-box.jpg"
+										alt="img"
+									/>
+								</div>
+								<div class="widget--list__text">
+									<div class="widget--list__tag">
+										<p class="tag">Status tag</p>
+										<p class="tag lightblue">Status tag</p>
+									</div>
+									<p class="title">List item</p>
+									<p class="time">Content</p>
+									<p class="time">Date & Time</p>
+								</div>
+							</div>
+						</div>
 						<div class="widget--img">
 							<img
 								src="../assets/image/img-box.jpg"
@@ -34,29 +46,8 @@
 								class="widget--img"
 							/>
 						</div>
-						<p class="widget--desc">
-							Lorem ipsum dolor sit amet consectetur.<br />Eget
-							pellentesque nec consectetur tempus turpis ultrices.
-						</p>
 					</div>
-					<!-- //기본 -->
-					<!-- 기본: sub title -->
-					<div class="widget">
-						<p class="widget--title">Title</p>
-						<div class="widget--img">
-							<img
-								src="../assets/image/img-box.jpg"
-								alt="img"
-								class="widget--img"
-							/>
-						</div>
-						<p class="widget--subtitle">Sub Title</p>
-						<p class="widget--desc">
-							Lorem ipsum dolor sit amet consectetur.<br />Eget
-							pellentesque nec consectetur tempus turpis ultrices.
-						</p>
-					</div>
-					<!-- //기본: sub title -->
+					<!-- //Thumbnail list + Visual -->
 				</div>
 			</div>
 		</div>

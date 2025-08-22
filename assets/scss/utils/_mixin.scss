@@ -2,9 +2,9 @@
 @use 'sass:math';
 
 // flex
-@mixin set-flex($fixed: null, $dir: row, $j: null, $a: null) {
-	@if $fixed != null {
-		@if $fixed {
+@mixin set-flex($f: null, $dir: row, $j: null, $a: null) {
+	@if $f != null {
+		@if $f {
 			flex-shrink: 0;
 			flex-grow: 0;
 		} @else {
@@ -31,13 +31,47 @@
 	text-overflow: ellipsis;
 	@if $l == 1 {
 		white-space: nowrap;
-	}
-	@if $l > 1 {
+	} @else {
+		display: block;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: $l;
 		@if $lh != null {
 			max-height: #{$lh * $l + ($p * 2)}px;
 		}
+	}
+}
+
+// RESET
+@mixin reset($type) {
+	@if $type == text {
+		color: rgba($color: $hexWhite, $alpha: 0);
+		font-size: 0;
+	}
+	@if $type == bg {
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
+	}
+	@if $type == icon {
+		@include reset(bg);
+		@include reset(text);
+	}
+	@if $type == pseudo {
+		display: block;
+		content: '';
+	}
+}
+
+// IMG
+@function url-img($type, $name, $cate: null, $value: svg) {
+	@if $cate != null {
+		$filename: $name + '-' + $cate + '.' + $value;
+		$url: '../image/' + $type + '/' + $filename;
+		@return $url;
+	} @else {
+		$filename: $name + '.' + $value;
+		$url: '../image/' + $type + '/' + $filename;
+		@return $url;
 	}
 }

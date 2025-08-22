@@ -1,442 +1,999 @@
 ﻿<!DOCTYPE html lang="ko">
 <html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<title>widget</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+		/>
+	</head>
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Goldenblue</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-</head>
-
-<body>
-    <div class="wrap" id="TOP">
-        <!--
+	<body>
+		<div class="wrap" id="TOP">
+			<!--
             날짜형식 : YYMMDD,  HH:MM, MMDD HH:MM
             stat : ing, new, prev, design, update, complete, release1, release_update2, client, client_update
         -->
 
-        <div class="title-box">
-            <div>
-                <h1 class="title__name">widget</h1>
-                <h2 class="title__last">latest update : <strong>250800</strong></h2> 
-            </div>
-        </div>
+			<div class="title-box">
+				<div>
+					<h1 class="title__name">widget</h1>
+					<h2 class="title__last">
+						latest update : <strong>250800</strong>
+					</h2>
+				</div>
+			</div>
 
-        <a data-target="TOP" class="gomenu top"><strong>맨 위</strong></a>
+			<a data-target="TOP" class="gomenu top"><strong>맨 위</strong></a>
 
-        <div class="subdata-box">
-            <p class="title__last">퍼블리싱 차수 업데이트 날짜</p>
-            <div class="subdata" style="flex-wrap: wrap; row-gap: 0;">
-                <p class="title__last"><strong>v0.1</strong>(250800, 기획서 v0.0)</p>
-            </div>
-            <p class="title__last">메뉴 바로가기</p>
-            <div class="subdata">
-                <a data-target="LAYOUT" class="gomenu"><strong>위젯</strong></a>
-            </div>
-        </div>
-        
-        <div class="filelist_sample">
-            <p style="font-size: 11px; opacity: 0.5;">* 각 태그에 마우스 오버한 상태로 기다리면 해당 태그의 설명이 보입니다.</p>
-            <a class="ing" title="작업 중인 신규 페이지">작업중 (퍼블 진행 중인 페이지)</a>
-            <a class="new" style="color: #000;" title="최신 버전 디자인이 적용된 신규 레이지">신규 (최신 디자인)</a>
-            <a class="prev" style="color: #336cdf;" title="작업 완료 후 디자인 변경된 신규 페이지">신규 (이전 디자인)</a>
-            <a class="update" title="QA 혹은 개발 전달 후 수정된 페이지">수정 (배포 후 수정)</a>
-            <!-- <a class="complete" title="내부 QA 완료">QA완료 (내부 QA 완료)</a>
+			<div class="subdata-box">
+				<p class="title__last">퍼블리싱 차수 업데이트 날짜</p>
+				<div class="subdata" style="flex-wrap: wrap; row-gap: 0">
+					<p class="title__last">
+						<strong>v0.1</strong>(250800, 기획서 v0.0)
+					</p>
+				</div>
+				<p class="title__last">메뉴 바로가기</p>
+				<div class="subdata">
+					<a data-target="LAYOUT" class="gomenu"
+						><strong>위젯</strong></a
+					>
+				</div>
+			</div>
+
+			<div class="filelist_sample">
+				<p style="font-size: 11px; opacity: 0.5">
+					* 각 태그에 마우스 오버한 상태로 기다리면 해당 태그의 설명이
+					보입니다.
+				</p>
+				<a class="ing" title="작업 중인 신규 페이지"
+					>작업중 (퍼블 진행 중인 페이지)</a
+				>
+				<a
+					class="new"
+					style="color: #000"
+					title="최신 버전 디자인이 적용된 신규 레이지"
+					>신규 (최신 디자인)</a
+				>
+				<a
+					class="prev"
+					style="color: #336cdf"
+					title="작업 완료 후 디자인 변경된 신규 페이지"
+					>신규 (이전 디자인)</a
+				>
+				<a class="update" title="QA 혹은 개발 전달 후 수정된 페이지"
+					>수정 (배포 후 수정)</a
+				>
+				<!-- <a class="complete" title="내부 QA 완료">QA완료 (내부 QA 완료)</a>
             <a class="release1" title="퍼블리싱 배포">v0.0 (직전 배포 버전)</a>
             <a class="release_update2" title="퍼블리싱 배포">v0.1 (배포 버전)</a> -->
-        </div>
+			</div>
 
-        <!-- 강조할 업데이트 날짜 -->
-        <div class="date-focus">
-            <!-- <span>230508</span> -->
-        </div>
-        <div class="date-design">
-            <!-- <span>0411 18:30</span> -->
-            <!-- <span>0410 14:00</span>
+			<!-- 강조할 업데이트 날짜 -->
+			<div class="date-focus">
+				<!-- <span>230508</span> -->
+			</div>
+			<div class="date-design">
+				<!-- <span>0411 18:30</span> -->
+				<!-- <span>0410 14:00</span>
             <span>0413 17:00</span> -->
-        </div>
+			</div>
 
-        <!-- 파일리스트 -->
-        <div class="file-list">
-            <!-- HEADER -->
-            <div class="depth-box box--depth1" id="INFO">
-                <button stat="none" depth1="depth1" depth2="depth2" depth3="depth3" depth4="depth4" date="마지막 업데이트"></button>
-            </div>
+			<!-- 파일리스트 -->
+			<div class="file-list">
+				<!-- HEADER -->
+				<div class="depth-box box--depth1" id="INFO">
+					<button
+						stat="none"
+						depth1="depth1"
+						depth2="depth2"
+						depth3="depth3"
+						depth4="depth4"
+						date="마지막 업데이트"
+					></button>
+				</div>
 
-            <!-- LIST -->
-            <!-- #region LAYOUT -->
-            <div class="depth-box box--depth1" id="LAYOUT">
-                <button stat="-" depth1="위젯" date="-"></button>
-                <div class="depth-box box--depth2">
-                    <button stat="-" depth2="레이아웃" date="-"></button>
-                    <div class="depth-box box--depth3">
-                        <button stat="-" depth3="공통" date="-"></button>
-                        <div class="depth-box box--depth4">
-                            <button stat="new" depth4="html head" url="html/layout/head.html" date="-"></button>
-                            <button stat="new" depth4="header (Brand)" url="html/layout/header-brand.html" date="-"></button>
-                            <button stat="-" depth4="header (Etc.)" url="html/layout/header-etc.html" date="-"></button>
-                            <button stat="new" depth4="footer" url="html/layout/footer.html" date="-"></button>
-                        </div>
-                    </div>
-                    <div class="depth-box box--depth3">
-                        <button stat="-" depth3="페이지 별" date="-"></button>
-                        <div class="depth-box box--depth4">
-                            <button stat="ing" depth4="기본" url="html/layout/default.html" date="-"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #endregion COMMON -->
-            <!-- //LIST -->
-        </div>
+				<!-- LIST -->
+				<!-- #region LAYOUT -->
+				<div class="depth-box box--depth1" id="LAYOUT">
+					<button stat="-" depth1="위젯" date="-"></button>
+					<div class="depth-box box--depth2">
+						<button stat="-" depth2="" date="-">
+							<button
+								stat="new"
+								depth3="widget"
+								url="html/widget.html"
+								date="-"
+							></button>
+							<button
+								stat="new"
+								depth3="description-list"
+								url="html/description-list.html"
+								date="-"
+							></button>
+							<button
+								stat="new"
+								depth3="description-number-list"
+								url="html/description-number-list.html"
+								date="-"
+							></button>
+							<button
+								stat="new"
+								depth3="visual-number-list"
+								url="html/visual-number-list.html"
+								date="-"
+							></button>
+							<button
+								stat="new"
+								depth3="description-icon-list"
+								url="html/description-icon-list.html"
+								date="-"
+							></button>
+							<button
+								stat="new"
+								depth3="message-visual"
+								url="html/message-visual.html"
+								date="-"
+							></button>
+							<button
+								stat="new"
+								depth3="description-thumbnail-list"
+								url="html/description-thumbnail-list.html"
+								date="-"
+							></button>
+							<button
+								stat="new"
+								depth3="thumbnail-list-visual"
+								url="html/thumbnail-list-visual.html"
+								date="-"
+							></button>
+							<button
+								stat="new"
+								depth3="description-toggle"
+								url="html/description-toggle.html"
+								date="-"
+							></button>
+							<button
+								stat="new"
+								depth3="description-toggle-icon"
+								url="html/description-toggle-icon.html"
+								date="-"
+							></button>
+							<button
+								stat="new"
+								depth3="description-check-list"
+								url="html/description-check-list.html"
+								date="-"
+							></button>
+						</button>
+					</div>
+				</div>
+				<!-- #endregion COMMON -->
+				<!-- //LIST -->
+			</div>
 
-        <!-- 변경사항 -->
-        <div class="work-history">
-            <!-- <div class="history__box">
+			<!-- 변경사항 -->
+			<div class="work-history">
+				<!-- <div class="history__box">
                 <p class="history__date">MMDD HH:MM</p>
                 <p class="history__text">변경내용01</p>
                 <p class="history__text">변경내용02</p>
             </div> -->
-        </div>
+			</div>
+		</div>
 
-    </div>
+		<script>
+			let dates = [];
+			let design = [];
 
-    <script>
-        let dates = [];
-        let design = [];
+			// 강조 버튼 class추가
+			const $focus = document.querySelectorAll('.date-focus span');
+			if (!$focus.el) {
+				document.querySelector('.date-focus').style.display = 'none';
+			}
+			const $design = document.querySelectorAll('.date-design span');
+			if (!$design.el) {
+				document.querySelector('.date-design').style.display = 'none';
+			}
+			$focus.forEach((el, i) => {
+				dates.push(el.innerText);
+			});
+			$design.forEach((el, i) => {
+				design.push(el.innerText);
+			});
 
-        // 강조 버튼 class추가
-        const $focus = document.querySelectorAll('.date-focus span');
-        if (!$focus.el) {
-            document.querySelector('.date-focus').style.display = "none";
-        }
-        const $design = document.querySelectorAll('.date-design span');
-        if (!$design.el) {
-            document.querySelector('.date-design').style.display = "none";
-        }
-        $focus.forEach((el, i) => {
-            dates.push(el.innerText);
-        })
-        $design.forEach((el, i) => {
-            design.push(el.innerText);
-        })
+			// 버튼 속성 별 태그 생성
+			const $btn = document.querySelectorAll('button');
+			let html = '';
+			$btn.forEach((el) => {
+				const $dataset = el.attributes;
+				const inner = el.innerHTML;
 
-        // 버튼 속성 별 태그 생성
-        const $btn = document.querySelectorAll('button');
-        let html = '';
-        $btn.forEach(el => {
-            const $dataset = el.attributes;
-            const inner = el.innerHTML;
+				const _depth1 = el.closest('.box--depth1')
+					? el
+							.closest('.box--depth1')
+							.getElementsByTagName('button')[0].attributes.depth1
+							.value
+					: '';
+				// console.log(_depth1);
+				const _depth2 = el.closest('.box--depth2')
+					? el
+							.closest('.box--depth2')
+							.getElementsByTagName('button')[0].attributes.depth2
+							.value
+					: '';
+				// console.log(_depth2);
+				const _depth3 = el.closest('.box--depth3')
+					? el
+							.closest('.box--depth3')
+							.getElementsByTagName('button')[0].attributes.depth3
+							.value
+					: '';
+				// console.log(_depth3);
 
-            const _depth1 = (el.closest('.box--depth1')) ? el.closest('.box--depth1').getElementsByTagName('button')[0].attributes.depth1.value : '';
-            // console.log(_depth1);
-            const _depth2 = (el.closest('.box--depth2')) ? el.closest('.box--depth2').getElementsByTagName('button')[0].attributes.depth2.value : '';
-            // console.log(_depth2);
-            const _depth3 = (el.closest('.box--depth3')) ? el.closest('.box--depth3').getElementsByTagName('button')[0].attributes.depth3.value : '';
-            // console.log(_depth3);
+				el.innerHTML = '';
+				html += '<div class="inner">';
 
-            el.innerHTML = '';
-            html += '<div class="inner">';
+				// stat
+				if ($dataset.date) {
+					setItem($dataset.stat, 'stat', null, $dataset.date);
+				} else {
+					setItem($dataset.stat, 'stat');
+				}
 
-            // stat
-            if ($dataset.date) {
-                setItem($dataset.stat, 'stat', null, $dataset.date)
-            } else {
-                setItem($dataset.stat, 'stat')
-            }
+				// depth1
+				setItem($dataset.depth1, 'depth1', _depth1);
 
-            // depth1
-            setItem($dataset.depth1, 'depth1', _depth1)
+				// depth2
+				setItem($dataset.depth2, 'depth2', _depth2);
 
-            // depth2
-            setItem($dataset.depth2, 'depth2', _depth2)
+				// depth3
+				setItem($dataset.depth3, 'depth3', _depth3);
 
-            // depth3
-            setItem($dataset.depth3, 'depth3', _depth3)
+				// depth4
+				setItem($dataset.depth4, 'depth4');
 
-            // depth4
-            setItem($dataset.depth4, 'depth4')
+				// 링크
+				if ($dataset.text) {
+					// text
+					setItem($dataset.text, 'text');
+				} else {
+					setItem($dataset.url, 'url');
+					if ($dataset.url) {
+						el.addEventListener('click', () => {
+							let url = $dataset.url.baseURI;
+							url = url.replace('filelist.html', '');
+							window
+								.open(url + $dataset.url.nodeValue, '_blank')
+								.focus();
+						});
+					}
+				}
 
-            // 링크
-            if ($dataset.text) {
-                // text
-                setItem($dataset.text, 'text')
-            } else {
-                setItem($dataset.url, 'url')
-                if ($dataset.url) {
-                    el.addEventListener('click', () => {
-                        let url = $dataset.url.baseURI;
-                        url = url.replace('filelist.html', '');
-                        window.open(url + $dataset.url.nodeValue, '_blank').focus();
-                    })
-                }
-            }
+				// date
+				setItem($dataset.date, 'date');
+				html += '</div>';
+				html += inner;
+				el.innerHTML += html;
 
-            // date
-            setItem($dataset.date, 'date')
-            html += '</div>'
-            html += inner
-            el.innerHTML += html
+				// 강조 클래스
+				if ($dataset.date && dates.indexOf($dataset.date.value) >= 0) {
+					el.classList.add('prev');
+				}
+				if ($dataset.date && design.indexOf($dataset.date.value) >= 0) {
+					el.classList.add('design');
+				}
 
-            // 강조 클래스
-            if ($dataset.date && dates.indexOf($dataset.date.value) >= 0) {
-                el.classList.add('prev')
-            }
-            if ($dataset.date && design.indexOf($dataset.date.value) >= 0) {
-                el.classList.add('design')
-            }
+				// 상태 클래스
+				if ($dataset.stat) {
+					el.classList.add($dataset.stat.value);
+				}
 
-            // 상태 클래스
-            if ($dataset.stat) {
-                el.classList.add($dataset.stat.value);
-            }
+				html = '';
+			});
 
-            html = '';
-            
-        })
+			window.onload = function () {
+				const gomenu = document.querySelectorAll('.gomenu');
+				gomenu.forEach((el, i) => {
+					const menuId = el.dataset.target;
+					const top = document.querySelector(
+						'#' + el.dataset.target
+					).offsetTop;
+					// console.log(menuId, top);
+					el.addEventListener('click', () => {
+						window.scrollTo({ top: top });
+					});
+				});
+			};
 
-        window.onload = function () {
-            const gomenu = document.querySelectorAll('.gomenu');
-            gomenu.forEach((el, i) => {
-                const menuId = el.dataset.target;
-                const top = document.querySelector('#' + el.dataset.target).offsetTop;
-                // console.log(menuId, top);
-                el.addEventListener('click', () => {
-                    window.scrollTo({top: top})
-                })
-            })
-        }
+			function setItem(el, name, parent, date) {
+				const texts = parent ? parent : '';
 
-        function setItem(el, name, parent, date) {
-            const texts = parent ?  parent : '';
-            
-            // stat 없을 때
-            if (!el) {
-                html += '<p class="' + name + '">' + texts + '</p>';
-            } else {
-                switch(name) {
-                    case 'depth1':
-                        html += '<p class="' + name + ' step">' + el.value + '</p>'
-                        break;
-                    case 'depth2':
-                        html += '<p class="' + name + ' step">' + el.value + '</p>'
-                        break;
-                    case 'depth3':
-                        html += '<p class="' + name + ' step">' + el.value + '</p>'
-                        break;
-                    case 'depth4':
-                        html += '<p class="' + name + ' step">' + el.value + '</p>'
-                        break;
-                    case 'text':
-                        html += '<p class="url text">' + el.value + '</p>'
-                        break;
-                    default:
-                        if (name == 'stat' && date) {
-                            html += '<p class="' + name + '" title="' + date.value + '">' + el.value + '</p>'
-                            break;
-                        }
-                        html += '<p class="' + name + '">' + el.value + '</p>'
-                        break;
-                }
-            }
-        }
-    
-        function foldHistory(el, e) {
-            e.stopImmediatePropagation();
-		    e.stopPropagation();
-            if (e.target.nextElementSibling.style.display == 'none') {
-                e.target.nextElementSibling.style.display = 'block'
-            } else {
-                e.target.nextElementSibling.style.display = 'none'
-            }
-        }
-    </script>
-    <style>
-        * {margin: 0; padding: 0; font-size: 12px; font-family: 'Roboto', 'Noto sans', 'Nanum Gothic', '나눔고딕', 'nanumgothic', 'Noto sans kr','malgun gothic'; box-sizing: border-box;}
-        .wrap {min-width: 1240px; padding: 20px 20px 50px 28px;}
+				// stat 없을 때
+				if (!el) {
+					html += '<p class="' + name + '">' + texts + '</p>';
+				} else {
+					switch (name) {
+						case 'depth1':
+							html +=
+								'<p class="' +
+								name +
+								' step">' +
+								el.value +
+								'</p>';
+							break;
+						case 'depth2':
+							html +=
+								'<p class="' +
+								name +
+								' step">' +
+								el.value +
+								'</p>';
+							break;
+						case 'depth3':
+							html +=
+								'<p class="' +
+								name +
+								' step">' +
+								el.value +
+								'</p>';
+							break;
+						case 'depth4':
+							html +=
+								'<p class="' +
+								name +
+								' step">' +
+								el.value +
+								'</p>';
+							break;
+						case 'text':
+							html += '<p class="url text">' + el.value + '</p>';
+							break;
+						default:
+							if (name == 'stat' && date) {
+								html +=
+									'<p class="' +
+									name +
+									'" title="' +
+									date.value +
+									'">' +
+									el.value +
+									'</p>';
+								break;
+							}
+							html +=
+								'<p class="' + name + '">' + el.value + '</p>';
+							break;
+					}
+				}
+			}
 
-        strong {font-weight: 800; color: #000;}
+			function foldHistory(el, e) {
+				e.stopImmediatePropagation();
+				e.stopPropagation();
+				if (e.target.nextElementSibling.style.display == 'none') {
+					e.target.nextElementSibling.style.display = 'block';
+				} else {
+					e.target.nextElementSibling.style.display = 'none';
+				}
+			}
+		</script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+				font-family: 'Roboto', 'Noto sans', 'Nanum Gothic', '나눔고딕',
+					'nanumgothic', 'Noto sans kr', 'malgun gothic';
+				box-sizing: border-box;
+			}
+			.wrap {
+				min-width: 1240px;
+				padding: 20px 20px 50px 28px;
+			}
 
-        .title-box {overflow: hidden; display: flex; align-items: stretch; justify-content: stretch; gap: 24px; margin-top: 5px; margin-bottom: 10px;}
-        .title__name {margin-bottom: 5px; color: #333333; font-size: 28px; font-weight: bold; clear: right; }
-        .title__browser {vertical-align: bottom; padding-left: 8px; color: #999999; font-size: 14px; font-weight: 400; text-transform: uppercase;}
-        .title-box .bo-box {display: flex; align-items: center; flex-grow: 1; padding: 10px 20px; background-color: rgba(0, 0, 0, 0.06); border-radius: 5px; line-height: 26px;}
+			strong {
+				font-weight: 800;
+				color: #000;
+			}
 
-        .subdata-box {padding: 5px 10px; margin-bottom: 10px; background-color: #e1e6ef; border-radius: 5px; line-height: 26px;}
-        .subdata-box .title__last {color: rgba(0, 0, 0, 0.5); font-size: 13px;}
-        .subdata-box .subdata {display: flex; gap: 10px;}
-        .subdata-box .subdata .title__last {color: #000;}
-        .subdata-box .subdata + .title__last {margin-top: 10px; padding-top: 10px; border-top: 1px solid #fff;}
+			.title-box {
+				overflow: hidden;
+				display: flex;
+				align-items: stretch;
+				justify-content: stretch;
+				gap: 24px;
+				margin-top: 5px;
+				margin-bottom: 10px;
+			}
+			.title__name {
+				margin-bottom: 5px;
+				color: #333333;
+				font-size: 28px;
+				font-weight: bold;
+				clear: right;
+			}
+			.title__browser {
+				vertical-align: bottom;
+				padding-left: 8px;
+				color: #999999;
+				font-size: 14px;
+				font-weight: 400;
+				text-transform: uppercase;
+			}
+			.title-box .bo-box {
+				display: flex;
+				align-items: center;
+				flex-grow: 1;
+				padding: 10px 20px;
+				background-color: rgba(0, 0, 0, 0.06);
+				border-radius: 5px;
+				line-height: 26px;
+			}
 
+			.subdata-box {
+				padding: 5px 10px;
+				margin-bottom: 10px;
+				background-color: #e1e6ef;
+				border-radius: 5px;
+				line-height: 26px;
+			}
+			.subdata-box .title__last {
+				color: rgba(0, 0, 0, 0.5);
+				font-size: 13px;
+			}
+			.subdata-box .subdata {
+				display: flex;
+				gap: 10px;
+			}
+			.subdata-box .subdata .title__last {
+				color: #000;
+			}
+			.subdata-box .subdata + .title__last {
+				margin-top: 10px;
+				padding-top: 10px;
+				border-top: 1px solid #fff;
+			}
 
-        .title__last,
-        .gomenu {color: #333333; font-size: 13px; font-weight: 500; text-transform: uppercase;}
-        .title__last strong,
-        .gomenu strong {color: #2165ee; font-size: 14px;}
-        .title__last strong span,
-        .gomenu strong span {font-size: 10px;}
-        .title__last span strong,
-        .gomenu span strong {color: #eb5700; font-size: 14px;}
+			.title__last,
+			.gomenu {
+				color: #333333;
+				font-size: 13px;
+				font-weight: 500;
+				text-transform: uppercase;
+			}
+			.title__last strong,
+			.gomenu strong {
+				color: #2165ee;
+				font-size: 14px;
+			}
+			.title__last strong span,
+			.gomenu strong span {
+				font-size: 10px;
+			}
+			.title__last span strong,
+			.gomenu span strong {
+				color: #eb5700;
+				font-size: 14px;
+			}
 
-        .gomenu {padding-top: 7px; padding-bottom: 7px; line-height: 1; cursor: pointer;}
-        .gomenu.top {position: fixed; padding: 5px 10px; top: 30px; right: 30px; background-color: rgba(0, 0, 0, 0.65); border-radius: 3px; z-index: 50;}
-        .gomenu.top strong {color: #fff; font-size: 15px;}
+			.gomenu {
+				padding-top: 7px;
+				padding-bottom: 7px;
+				line-height: 1;
+				cursor: pointer;
+			}
+			.gomenu.top {
+				position: fixed;
+				padding: 5px 10px;
+				top: 30px;
+				right: 30px;
+				background-color: rgba(0, 0, 0, 0.65);
+				border-radius: 3px;
+				z-index: 50;
+			}
+			.gomenu.top strong {
+				color: #fff;
+				font-size: 15px;
+			}
 
-        .date-focus {padding: 4px 7px; margin-bottom: 30px; background-color: #f8f8f8; font-size: 0;}
-        .date-focus::before {vertical-align: middle; display: inline-block; padding-right: 5px; color: #2165ee; font-size: 15px; font-weight: 500; line-height: 21px; content: '이전 업데이트 파일';}
-        .date-focus span {vertical-align: middle; color: #666; font-size: 13px; line-height: 21px;}
-        .date-focus span:not(:first-child)::before {vertical-align: middle; display: inline-block; width: 1px; height: 12px; margin-top: -2px; margin-right: 6px; margin-left: 6px; background-color: #757575; line-height: 21px; content: '';}
+			.date-focus {
+				padding: 4px 7px;
+				margin-bottom: 30px;
+				background-color: #f8f8f8;
+				font-size: 0;
+			}
+			.date-focus::before {
+				vertical-align: middle;
+				display: inline-block;
+				padding-right: 5px;
+				color: #2165ee;
+				font-size: 15px;
+				font-weight: 500;
+				line-height: 21px;
+				content: '이전 업데이트 파일';
+			}
+			.date-focus span {
+				vertical-align: middle;
+				color: #666;
+				font-size: 13px;
+				line-height: 21px;
+			}
+			.date-focus span:not(:first-child)::before {
+				vertical-align: middle;
+				display: inline-block;
+				width: 1px;
+				height: 12px;
+				margin-top: -2px;
+				margin-right: 6px;
+				margin-left: 6px;
+				background-color: #757575;
+				line-height: 21px;
+				content: '';
+			}
 
-        /* .file-list {}
+			/* .file-list {}
         .depth-box {} */
-        .depth-box button {width: 100%; margin-top: 4px; background-color: transparent; border: none; border-radius: 3px; outline: none; cursor: pointer;}
-        .depth-box button:hover .inner {background-color: #edf7ff;}
-        .depth-box button .inner {position: relative; display: grid; grid-template-columns: 60px 150px 150px 150px 150px auto 110px; align-items: center; background-color: #fff; border-radius: 3px; outline: none; z-index: 10;}
-        .depth-box button .inner::after {position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 1px solid #c3d6f1; border-radius: 3px; content: ''; z-index: 5;}
-        .depth-box button p {position: relative; display: flex; align-items: center; justify-content: center; height: 100%; min-height: 35px; padding: 2px 0; color: #73787c; word-break: break-all; word-wrap: break-word; line-height: 18px; z-index: 10;}
-        .depth-box button .stat {grid-column: 1 / 2; height: 100%; padding: 1px 0 1px 1px; border-radius: 3px 0 0 3px; font-size: 0; text-transform: uppercase;}
-        .depth-box button .stat::after {display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; border-radius: 3px 0 0 3px; font-size: 15px; font-weight: 600;}
-        .depth-box button .depth1 {grid-column: 2 / 3;}
-        .depth-box button .depth2 {grid-column: 3 / 4;}
-        .depth-box button .depth3 {grid-column: 4 / 5;}
-        .depth-box button .depth4 {grid-column: 5 / 6;}
-        .depth-box button .url {justify-content: start; grid-column: 6 / 7; padding-left: 15px; padding-right: 15px; border-top: 1px solid #2165ee; border-bottom: 1px solid #2165ee; color: #73787c; font-weight: 500;}
-        .depth-box button .url.text {color: #555a5e;}
-        .depth-box button .date {grid-column: 7 / 8; border: 1px solid #2165ee; border-left: none;  border-radius: 0 3px 3px 0; color: #73787c; font-weight: 500;}
-        .depth-box button .desc {position: relative; justify-content: start; padding: 15px 10px; margin-top: -5px; background-color: rgba(33, 101, 238, 0.04); border-radius: 3px; color: #7c7f84; text-align: left; line-height: 1.4; z-index: 5;}
-        .depth-box button .desc.fold {padding-top: 0; padding-bottom: 0;}
+			.depth-box button {
+				width: 100%;
+				margin-top: 4px;
+				background-color: transparent;
+				border: none;
+				border-radius: 3px;
+				outline: none;
+				cursor: pointer;
+			}
+			.depth-box button:hover .inner {
+				background-color: #edf7ff;
+			}
+			.depth-box button .inner {
+				position: relative;
+				display: grid;
+				grid-template-columns: 60px 150px 150px 150px 150px auto 110px;
+				align-items: center;
+				background-color: #fff;
+				border-radius: 3px;
+				outline: none;
+				z-index: 10;
+			}
+			.depth-box button .inner::after {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				border: 1px solid #c3d6f1;
+				border-radius: 3px;
+				content: '';
+				z-index: 5;
+			}
+			.depth-box button p {
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100%;
+				min-height: 35px;
+				padding: 2px 0;
+				color: #73787c;
+				word-break: break-all;
+				word-wrap: break-word;
+				line-height: 18px;
+				z-index: 10;
+			}
+			.depth-box button .stat {
+				grid-column: 1 / 2;
+				height: 100%;
+				padding: 1px 0 1px 1px;
+				border-radius: 3px 0 0 3px;
+				font-size: 0;
+				text-transform: uppercase;
+			}
+			.depth-box button .stat::after {
+				display: flex;
+				width: 100%;
+				height: 100%;
+				align-items: center;
+				justify-content: center;
+				border-radius: 3px 0 0 3px;
+				font-size: 15px;
+				font-weight: 600;
+			}
+			.depth-box button .depth1 {
+				grid-column: 2 / 3;
+			}
+			.depth-box button .depth2 {
+				grid-column: 3 / 4;
+			}
+			.depth-box button .depth3 {
+				grid-column: 4 / 5;
+			}
+			.depth-box button .depth4 {
+				grid-column: 5 / 6;
+			}
+			.depth-box button .url {
+				justify-content: start;
+				grid-column: 6 / 7;
+				padding-left: 15px;
+				padding-right: 15px;
+				border-top: 1px solid #2165ee;
+				border-bottom: 1px solid #2165ee;
+				color: #73787c;
+				font-weight: 500;
+			}
+			.depth-box button .url.text {
+				color: #555a5e;
+			}
+			.depth-box button .date {
+				grid-column: 7 / 8;
+				border: 1px solid #2165ee;
+				border-left: none;
+				border-radius: 0 3px 3px 0;
+				color: #73787c;
+				font-weight: 500;
+			}
+			.depth-box button .desc {
+				position: relative;
+				justify-content: start;
+				padding: 15px 10px;
+				margin-top: -5px;
+				background-color: rgba(33, 101, 238, 0.04);
+				border-radius: 3px;
+				color: #7c7f84;
+				text-align: left;
+				line-height: 1.4;
+				z-index: 5;
+			}
+			.depth-box button .desc.fold {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
 
+			.depth-box button p.depth2:not(.step)::before,
+			.depth-box button p.depth3:not(.step)::before,
+			.depth-box button p.depth4:not(.step)::before,
+			.depth-box button p.url::before,
+			.depth-box button p.date::before {
+				position: absolute;
+				width: 1px;
+				height: 16px;
+				top: 50%;
+				left: 0;
+				margin-top: -8px;
+				background-color: #cbd4df;
+				content: '';
+			}
 
-        .depth-box button p.depth2:not(.step)::before,
-        .depth-box button p.depth3:not(.step)::before,
-        .depth-box button p.depth4:not(.step)::before,
-        .depth-box button p.url::before,
-        .depth-box button p.date::before {position: absolute; width: 1px; height: 16px; top: 50%; left: 0; margin-top: -8px; background-color: #cbd4df; content: '';}
+			.depth-box button .depth1,
+			.depth-box button .depth2,
+			.depth-box button .depth3,
+			.depth-box button .depth4 {
+				color: #cdd0d5;
+			}
 
+			.depth-box button p.step,
+			.depth-box button p.step ~ p {
+				border-top: 1px solid #2165ee;
+				border-bottom: 1px solid #2165ee;
+				color: #73787c;
+				font-weight: 500;
+			}
+			.depth-box button p.step ~ p:not(:first-child):not(:last-child) {
+				border-radius: 0;
+			}
+			.depth-box button p.step ~ p:not(.url):not(.date)::before {
+				display: none;
+			}
+			.depth-box button p.step {
+				border-left: 1px solid #2165ee;
+				border-radius: 3px 0 0 3px;
+			}
 
-        .depth-box button .depth1,
-        .depth-box button .depth2,
-        .depth-box button .depth3,
-        .depth-box button .depth4 {color: #cdd0d5;}
+			.depth-box button p.depth1 {
+				flex-direction: column;
+			}
+			.depth-box button p.depth1 span {
+				font-size: 10px;
+				line-height: 1.2;
+			}
 
-        .depth-box button p.step,
-        .depth-box button p.step ~ p {border-top: 1px solid #2165ee; border-bottom: 1px solid #2165ee; color: #73787c; font-weight: 500;}
-        .depth-box button p.step ~ p:not(:first-child):not(:last-child) {border-radius: 0;}
-        .depth-box button p.step ~ p:not(.url):not(.date)::before {display: none;}
-        .depth-box button p.step {border-left: 1px solid #2165ee; border-radius: 3px 0 0 3px;}
+			.depth-box button.none .stat::after {
+				content: '상태';
+			}
 
-        .depth-box button p.depth1 {flex-direction: column;}
-        .depth-box button p.depth1 span {font-size: 10px; line-height: 1.2;}
+			/* 차시 */
+			.depth-box button[class*='release'] .stat::after,
+			.depth-box button[class*='major'] .stat::after {
+				background-color: #eeeeee;
+				color: #afafaf;
+			}
+			.depth-box button[class*='release_update'] .stat::after,
+			.depth-box button[class*='major_update'] .stat::after {
+				color: #5d5d5d;
+			}
+			.depth-box button[class*='release'][class*='1'] .stat::after {
+				content: '1차';
+			}
+			.depth-box button[class*='release'][class*='2'] .stat::after {
+				content: '2차';
+			}
+			.depth-box button[class*='release'][class*='3'] .stat::after {
+				content: '3차';
+			}
+			.depth-box button[class*='major'][class*='3'] .stat::after {
+				content: '3차 (Major)';
+				font-size: 12px;
+				word-break: keep-all;
+			}
+			.depth-box button[class*='release'][class*='4'] .stat::after {
+				content: '4차';
+			}
+			.depth-box button[class*='release'][class*='5'] .stat::after {
+				content: '5차';
+			}
+			.depth-box button[class*='release'][class*='6'] .stat::after {
+				content: '6차';
+			}
+			.depth-box button[class*='major'][class*='6'] .stat::after {
+				content: '6차 (Major)';
+				font-size: 12px;
+				word-break: keep-all;
+			}
+			.depth-box button[class*='release'][class*='7'] .stat::after {
+				content: '7차';
+			}
+			.depth-box button[class*='release'][class*='8'] .stat::after {
+				content: '8차';
+			}
+			.depth-box button[class*='release'][class*='9'] .stat::after {
+				content: '9차';
+			}
+			.depth-box button[class*='release'][class*='10'] .stat::after {
+				content: '10차';
+			}
+			.depth-box button[class*='release'][class*='11'] .stat::after {
+				content: '11차';
+			}
+			.depth-box button[class*='major'][class*='11'] .stat::after {
+				content: '11차 (Major)';
+				font-size: 12px;
+				word-break: keep-all;
+			}
+			.depth-box button[class*='release'][class*='12'] .stat::after {
+				content: '12차';
+			}
 
-        .depth-box button.none .stat::after {content: '상태';}
+			/* 버전 */
+			.depth-box button[class*='v'] .stat {
+				color: #5d5d5d;
+				font-size: 14px;
+				font-weight: 600;
+			}
 
-        /* 차시 */
-        .depth-box button[class*='release'] .stat::after,
-        .depth-box button[class*='major'] .stat::after {background-color: #eeeeee; color: #afafaf;}
-        .depth-box button[class*='release_update'] .stat::after,
-        .depth-box button[class*='major_update'] .stat::after {color: #5d5d5d;}
-        .depth-box button[class*='release'][class*='1'] .stat::after {content: '1차';}
-        .depth-box button[class*='release'][class*='2'] .stat::after {content: '2차';}
-        .depth-box button[class*='release'][class*='3'] .stat::after {content: '3차';}
-        .depth-box button[class*='major'][class*='3'] .stat::after {content: '3차 (Major)'; font-size: 12px; word-break: keep-all;}
-        .depth-box button[class*='release'][class*='4'] .stat::after {content: '4차';}
-        .depth-box button[class*='release'][class*='5'] .stat::after {content: '5차';}
-        .depth-box button[class*='release'][class*='6'] .stat::after {content: '6차';}
-        .depth-box button[class*='major'][class*='6'] .stat::after {content: '6차 (Major)'; font-size: 12px; word-break: keep-all;}
-        .depth-box button[class*='release'][class*='7'] .stat::after {content: '7차';}
-        .depth-box button[class*='release'][class*='8'] .stat::after {content: '8차';}
-        .depth-box button[class*='release'][class*='9'] .stat::after {content: '9차';}
-        .depth-box button[class*='release'][class*='10'] .stat::after {content: '10차';}
-        .depth-box button[class*='release'][class*='11'] .stat::after {content: '11차';}
-        .depth-box button[class*='major'][class*='11'] .stat::after {content: '11차 (Major)'; font-size: 12px; word-break: keep-all;}
-        .depth-box button[class*='release'][class*='12'] .stat::after {content: '12차';}
+			/* 상태 */
+			.depth-box button.client .stat::after,
+			.depth-box button.client_update .stat::after {
+				width: calc(100% + 1px);
+				height: calc(100% + 2px);
+				margin: -1px 0 -1px -1px;
+				background-color: #000;
+				color: #000;
+				content: '클라이언트\A컨펌완료';
+			}
+			.depth-box button.client_update .stat::after {
+				color: #ffa200;
+				content: '전달후수정';
+				font-size: 11px;
+			}
+			.depth-box button.complete .stat::after {
+				width: calc(100% + 1px);
+				height: calc(100% + 2px);
+				margin: -1px 0 -1px -1px;
+				background-color: #afb6c1;
+				color: #edf7ff;
+				content: 'QA완료';
+			}
+			.depth-box button.update .stat::after {
+				color: #ffa200;
+				content: '수정';
+			}
+			.depth-box button.new .stat::after {
+				color: #434343;
+				content: '신규';
+			}
+			.depth-box button.ing .stat::after {
+				color: #9c9c9c;
+				font-size: 13px;
+				content: '작업중';
+			}
 
+			.depth-box button.delete .inner > p,
+			.depth-box button.move .inner > p {
+				opacity: 0.3;
+				cursor: default;
+			}
+			.depth-box button.delete:hover .inner,
+			.depth-box button.move:hover .inner {
+				background-color: transparent;
+			}
+			.depth-box button.delete .inner,
+			.depth-box button.move .inner {
+				background-color: rgb(184, 185, 186, 0.3);
+			}
+			.depth-box button.delete .inner::after,
+			.depth-box button.move .inner::after,
+			.depth-box button.delete .stat::after,
+			.depth-box button.move .stat::after {
+				background-color: rgb(184, 185, 186, 0.3);
+			}
+			.depth-box button.delete .stat::after,
+			.depth-box button.move .stat::after {
+				content: '삭제';
+			}
 
-        /* 버전 */
-        .depth-box button[class*='v'] .stat {color: #5d5d5d; font-size: 14px; font-weight: 600;}
-        
+			.depth-box button.prev .stat {
+				font-size: 0;
+			}
+			.depth-box button.prev .stat::after {
+				background-color: #fff;
+			}
+			.depth-box button.prev .stat::after {
+				color: #336cdf;
+				content: '신규\A이전버전';
+				font-size: 11px;
+				white-space: pre;
+				line-height: 1.2;
+			}
 
-        /* 상태 */
-        .depth-box button.client .stat::after,
-        .depth-box button.client_update .stat::after {width: calc(100% + 1px); height: calc(100% + 2px); margin: -1px 0 -1px -1px; background-color: #000; color: #000; content: '클라이언트\A컨펌완료';}
-        .depth-box button.client_update .stat::after {color: #ffa200; content: '전달후수정'; font-size: 11px;}
-        .depth-box button.complete .stat::after {width: calc(100% + 1px); height: calc(100% + 2px); margin: -1px 0 -1px -1px; background-color: #afb6c1; color: #edf7ff; content: 'QA완료';}
-        .depth-box button.update .stat::after {color: #ffa200; content: '수정';}
-        .depth-box button.new .stat::after {color: #434343; content: '신규';}
-        .depth-box button.ing .stat::after {color: #9c9c9c; font-size: 13px; content: '작업중';}
+			.depth-box button.design .stat::after {
+				background-color: rgba(116, 162, 255, 0.1);
+			}
+			.depth-box button.design .stat::after {
+				color: #2165ee;
+				content: '내부1차\AQA완료';
+				font-size: 11px;
+				white-space: pre;
+				line-height: 1.2;
+			}
 
-        .depth-box button.delete .inner > p,
-        .depth-box button.move .inner > p {opacity: 0.3; cursor: default;}
-        .depth-box button.delete:hover .inner,
-        .depth-box button.move:hover .inner {background-color: transparent;}
-        .depth-box button.delete .inner,
-        .depth-box button.move .inner {background-color: rgb(184, 185, 186, 0.3);}
-        .depth-box button.delete .inner::after,
-        .depth-box button.move .inner::after,
-        .depth-box button.delete .stat::after,
-        .depth-box button.move .stat::after {background-color: rgb(184, 185, 186, 0.3);}
-        .depth-box button.delete .stat::after,
-        .depth-box button.move .stat::after {content: '삭제';}
+			.depth-box button.delete p,
+			.depth-box button.delete p.step ~ p,
+			.depth-box button.move p,
+			.depth-box button.move p.step ~ p {
+				border-color: rgb(91, 92, 94, 0.3);
+				color: rgb(115, 120, 124, 1);
+			}
+			.depth-box button.delete p.depth2:not(.step)::before,
+			.depth-box button.delete p.depth3:not(.step)::before,
+			.depth-box button.delete p.depth4:not(.step)::before,
+			.depth-box button.delete p.url::before,
+			.depth-box button.delete p.date::before,
+			.depth-box button.delete p.url::before,
+			.depth-box button.delete p.date::before,
+			.depth-box button.move p.depth2:not(.step)::before,
+			.depth-box button.move p.depth3:not(.step)::before,
+			.depth-box button.move p.depth4:not(.step)::before,
+			.depth-box button.move p.url::before,
+			.depth-box button.move p.date::before,
+			.depth-box button.move p.url::before,
+			.depth-box button.move p.date::before {
+				background-color: rgb(91, 92, 94, 0.3);
+			}
+			.depth-box button.delete p.desc,
+			.depth-box button.move p.desc {
+				display: none;
+			}
+			.depth-box button.delete p.date,
+			.depth-box button.move p.date {
+				color: #434343;
+				opacity: 1;
+			}
 
-        .depth-box button.prev .stat {font-size: 0;}
-        .depth-box button.prev .stat::after {background-color: #fff;}
-        .depth-box button.prev .stat::after {color: #336cdf; content: '신규\A이전버전'; font-size: 11px; white-space: pre; line-height: 1.2;}
+			.box--depth1 > button .inner p:not(.stat) {
+				background-color: #2165ee;
+				color: #fff;
+			}
 
-        .depth-box button.design .stat::after {background-color: rgba(116, 162, 255, 0.1);}
-        .depth-box button.design .stat::after {color: #2165ee; content: '내부1차\AQA완료'; font-size: 11px; white-space: pre; line-height: 1.2;}
+			.work-history {
+				margin-top: 50px;
+			}
+			.history__box {
+				padding: 0 15px 15px 15px;
+				margin-bottom: 4px;
+				border: 2px solid #d7dbe2;
+				border-radius: 3px;
+			}
+			.history__date {
+				padding: 5px 0;
+				margin-top: 5px;
+				margin-bottom: 10px;
+				border-bottom: 1px solid #d7dbe2;
+				font-size: 16px;
+				font-weight: 600;
+			}
+			.history__text {
+				line-height: 1.6;
+			}
 
-        .depth-box button.delete p,
-        .depth-box button.delete p.step ~ p,
-        .depth-box button.move p,
-        .depth-box button.move p.step ~ p {border-color: rgb(91, 92, 94, 0.3); color: rgb(115, 120, 124, 1);}
-        .depth-box button.delete p.depth2:not(.step)::before,
-        .depth-box button.delete p.depth3:not(.step)::before,
-        .depth-box button.delete p.depth4:not(.step)::before,
-        .depth-box button.delete p.url::before,
-        .depth-box button.delete p.date::before,
-        .depth-box button.delete p.url::before,
-        .depth-box button.delete p.date::before,
-        .depth-box button.move p.depth2:not(.step)::before,
-        .depth-box button.move p.depth3:not(.step)::before,
-        .depth-box button.move p.depth4:not(.step)::before,
-        .depth-box button.move p.url::before,
-        .depth-box button.move p.date::before,
-        .depth-box button.move p.url::before,
-        .depth-box button.move p.date::before {background-color: rgb(91, 92, 94, 0.3);}
-        .depth-box button.delete p.desc,
-        .depth-box button.move p.desc {display: none;}
-        .depth-box button.delete p.date,
-        .depth-box button.move p.date {color: #434343; opacity: 1;}
+			.filelist_sample {
+				margin-bottom: 10px;
+				font-size: 0;
+			}
+			.filelist_sample a {
+				display: inline-block;
+				padding: 3px;
+				margin: 0 2px;
+				font-size: 12px;
+				cursor: default;
+			}
+			.filelist_sample .client {
+				background-color: #000;
+				color: #fff;
+			}
+			.filelist_sample .release {
+				background-color: #eeeeee;
+				color: #5d5d5d;
+				font-weight: 800;
+			}
+			.filelist_sample .client_update {
+				background-color: #000;
+				color: #ffa200;
+				font-weight: 800;
+			}
+			.filelist_sample .complete {
+				background-color: #afb6c1;
+				color: #edf7ff;
+			}
+			.filelist_sample .update {
+				color: #ffa200;
+			}
+			.filelist_sample .new {
+				color: #ffa200;
+			}
+			.filelist_sample .ing {
+				color: #9c9c9c;
+			}
+			.filelist_sample .prev {
+				background-color: #fff;
+				color: #86a4e1;
+			}
+			.filelist_sample .design {
+				background-color: rgba(116, 162, 255, 0.1);
+				color: #2165ee;
+			}
+			.filelist_sample [class*='release'] {
+				background-color: #eeeeee;
+				color: #afafaf;
+			}
+			.filelist_sample [class*='release_update'] {
+				color: #5d5d5d;
+			}
 
-        .box--depth1 > button .inner p:not(.stat) {background-color: #2165ee; color: #fff}
+			xmp {
+				display: inline-block;
+				padding: 4px;
+				background-color: #999;
+				color: #fff;
+			}
 
-        .work-history {margin-top: 50px;}
-        .history__box {padding: 0 15px 15px 15px; margin-bottom: 4px; border: 2px solid #d7dbe2; border-radius: 3px;}
-        .history__date {padding: 5px 0; margin-top: 5px; margin-bottom: 10px; border-bottom: 1px solid #d7dbe2; font-size: 16px; font-weight: 600;}
-        .history__text {line-height: 1.6;}
-
-        
-        .filelist_sample {margin-bottom: 10px; font-size: 0;}
-        .filelist_sample a {display: inline-block; padding: 3px; margin: 0 2px; font-size: 12px; cursor: default;}
-        .filelist_sample .client {background-color: #000; color: #fff;}
-        .filelist_sample .release {background-color: #eeeeee; color: #5d5d5d; font-weight: 800;}
-        .filelist_sample .client_update {background-color: #000; color: #ffa200; font-weight: 800;}
-        .filelist_sample .complete {background-color: #afb6c1; color: #edf7ff;}
-        .filelist_sample .update {color: #ffa200;}
-        .filelist_sample .new {color: #ffa200;}
-        .filelist_sample .ing {color: #9c9c9c;}
-        .filelist_sample .prev {background-color: #fff; color: #86a4e1;}
-        .filelist_sample .design {background-color: rgba(116, 162, 255, 0.1); color: #2165ee;}
-        .filelist_sample [class*='release'] {background-color: #eeeeee; color: #afafaf;}
-        .filelist_sample [class*='release_update'] {color: #5d5d5d;}
-
-        xmp {display: inline-block; padding: 4px; background-color: #999; color: #fff;}
-
-        .depth-box button .foldbox-button {display: inline-block; padding: 5px 0; margin: 3px 0; border-bottom: 2px solid #2165ee; border-radius: 2px; color: #2165ee; font-size: 14px; font-weight: 600; text-decoration: none;}
-        .depth-box button .foldbox .desc {padding: 0; background-color: transparent;}
-
-    </style>
-</body>
-
+			.depth-box button .foldbox-button {
+				display: inline-block;
+				padding: 5px 0;
+				margin: 3px 0;
+				border-bottom: 2px solid #2165ee;
+				border-radius: 2px;
+				color: #2165ee;
+				font-size: 14px;
+				font-weight: 600;
+				text-decoration: none;
+			}
+			.depth-box button .foldbox .desc {
+				padding: 0;
+				background-color: transparent;
+			}
+		</style>
+	</body>
 </html>
