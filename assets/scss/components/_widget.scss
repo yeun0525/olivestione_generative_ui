@@ -345,6 +345,20 @@
 					}
 				}
 			}
+			&--pin {
+				$s: 20px;
+				position: absolute;
+				width: $s;
+				height: $s;
+				top: 50%;
+				left: 50%;
+				margin-top: -20px;
+				background-color: #387aff;
+				border: 2px solid #fcfcff;
+				border-radius: $s;
+				transform: translate(-50%, -50%);
+				z-index: 6;
+			}
 			&--address {
 				position: absolute;
 				width: 100%;

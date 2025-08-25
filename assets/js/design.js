@@ -4,15 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		'.widget--list__box.is--message .text'
 	);
 
-	const enforceLength = (event) => {
-		const value = event.target.textContent;
-		if (value.length > maxLength) {
-			event.target.textContent = value.slice(0, maxLength);
+	if (textElement) {
+		const initialText = textElement.textContent;
+		if (initialText.length > maxLength) {
+			const truncatedText = initialText.slice(0, maxLength).trimEnd();
+			textElement.textContent = truncatedText + '...';
 		}
-	};
-
-	const initialText = textElement.textContent;
-	if (initialText.length > maxLength) {
-		textElement.textContent = initialText.slice(0, maxLength) + '...';
 	}
 });
