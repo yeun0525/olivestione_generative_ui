@@ -31,13 +31,14 @@
 	text-overflow: ellipsis;
 	@if $l == 1 {
 		white-space: nowrap;
-	} @else {
-		display: block;
+	}
+	@if $l > 1 {
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: $l;
 		@if $lh != null {
 			max-height: #{$lh * $l + ($p * 2)}px;
+			line-height: #{$lh}px;
 		}
 	}
 }
